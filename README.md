@@ -1,5 +1,8 @@
 # NordVPN_Parser
-Python parser for NordVPN server configs (udp and tcp settings). This script automates download of and formatting of the OpenVPN udp/tcp config scripts provided by NordVPN for dd-wrt routers from a easy to use python commadline. 
+Python parser for NordVPN server configs (udp and tcp settings). This script automates download of and formatting of the OpenVPN udp/tcp config scripts provided by NordVPN for dd-wrt routers from a easy to use python commadline and loads it to your DD-WRT routers in a single step.  
+
+Use this together with DD-WRT NordVPN scripts provided by https://tobsetobse.github.io/DD-WRT_NordVPN/
+
 
 Python ver 3.7.2
 
