@@ -12,7 +12,7 @@ Over time, the router will have a lot of unused server config files that it has 
 
 Using <b>NordVPN_Parser</b>, you can remove this bottleneck. You can now quickly download only a subset of servers you are interested in connecting from over 5000+ NordVPN servers in multiple countries. You can also delete and reload new set of server configs easily so, you can change your connection pattern frequently without spending a lot of time downloading, parsing and loading to the router.
 
-NordVN has also released a new recomention option to provide you with the best servers to connect to by your current location. This parser leverages that and downloads these server configs (when you pass --recommended flag).
+NordVN has released a recomendation option to provide you with the best servers to connect to by your current location and server load. This parser leverages that and downloads these server configs (just pass --recommended flag).
 
 You can also use <b>NordVPN_Parser</b> independently to update your OpenVPN setting in DD-WRT by running this script to download the config files locally to your machine and pasting that information to the necessary blocks of the OpenVPN UI page.
 
