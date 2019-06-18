@@ -67,6 +67,6 @@ Here is the complete list of parameters available with this utility.
               --router_dir ROUTER_DIR
                                     Location of router directory where these files will be pushed
               --delete_prev_router_config DELETE_PREV_ROUTER_CONFIG
-                                    Deletes previously stored server configs from the router. Provide config names like us4500udp or                                         us4* etc. (wildcard is supported)
+                                    Deletes previously stored server configs from the router. Provide config names like us4500udp or us4* etc. (wildcard is supported)
               --debug DEBUG         Debug Y/N? Helps in debugging by printing additional info along the way...
 
