@@ -24,10 +24,10 @@ Requires Python 3.7+ (I tested this on Python 3.7.2) with additional libraries.
 The command line option allows for various parameters to be passed which are detailed below. The only required parameter is '--base_dir' which is your current local storage directory to download the script from NordVPN server. 
 
        Simple example
-            <b> py nvpn_parser.py --base_dir 'C:\Users\Joe\NordVPN'</b>
+            py nvpn_parser.py --base_dir 'C:\Users\Joe\NordVPN'
 
        To download 5 Server configurations from NordVPN Recommended servers
-            <b> py nvpn_parser.py --base_dir 'C:\Users\Joe\NordVPN' --config_numbers 5 --recommended Y </b>
+            py nvpn_parser.py --base_dir 'C:\Users\Joe\NordVPN' --config_numbers 5 --recommended Y
               
 
 Here is the complete list of parameters available with this utility.
