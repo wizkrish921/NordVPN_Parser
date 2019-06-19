@@ -27,7 +27,7 @@ The command line option allows for various parameters to be passed which are det
             py nvpn_parser.py --base_dir 'C:\Users\Joe\NordVPN'
 
        To download 5 Server configurations from NordVPN Recommended servers
-            py nvpn_parser.py --base_dir 'C:\Users\Joe\NordVPN' --config_numbers 5 --recommended Y
+            py nvpn_parser.py --base_dir 'C:\Users\Joe\NordVPN' --config_limit 5 --recommended Y
               
 
 Here is the complete list of parameters available with this utility.
