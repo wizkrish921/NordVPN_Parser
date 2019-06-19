@@ -5,7 +5,6 @@
 # wizkrish921
 #*--------------------------------------------------------------------*
 
-
 import urllib.request
 import argparse
 import os
@@ -28,7 +27,7 @@ def parse_command_line_args():
 	parser.add_argument(
 	'--base_dir', required=True, help='Starting directory to store the server config files')
 	parser.add_argument(
-	'--config_numbers', required=False, default =1, help='Number of configs to download')
+	'--config_limit', required=False, default =1, help='Number of configs to download')
 	parser.add_argument(
 	'--recommended', required=False, default= 'N', help='Use servers recommended by NordVPN [Y]?')
 	parser.add_argument(
@@ -211,13 +210,16 @@ def load_reco_df(data) :
 	if args.debug is not None: print(f'Server list  : {server_list}')
 	
 	i=0
-	while i < int(args.config_numbers) :
+	while i < int(args.config_limit) :
 		domain_name = str(server_list[i])
 		server_name= domain_name.split('.')[0]
-		if args.debug is not None : print(f'{server_name}')
-		print(f'{server_name}')
+		if args.debug is not None : print(f'{i}  -  {server_name}')
+		
 		construct_server_url(server_name, args.protocol, args.base_dir)
 		i += 1
+		if i >= len(server_list) : 
+			print(f'Exhausted available servers. Downloading only {i} server configs ') 
+			break
 	return
 	
 
@@ -231,27 +233,29 @@ def load_df(data) :
 	df = pd.DataFrame(flat_data)
 	df1 = df.sort_values(by=['load'], ascending=True)
 	df1 = df1[df1['features_openvpn_udp'] == True]
-	df1 = df1[df1['country'] == args.country] 
+	df1 = df1[df1['country'] == (args.country)] 
 	df1 = df1[df1['load'].between(int(args.load)-5, int(args.load), inclusive=True)] 
 	df3 = df1.filter(items=['load', 'domain', 'ip_address', 'country', 'features_openvpn_udp'])
 	df2 = df1['domain']
 	
 	server_list = df2.values.tolist()
-	if args.debug is not None : print(f'Data Frame Head(50):\n {df3.head(50)}')
+	if args.debug is not None : print(f'Data Frame Head(10):\n {df3.head(10)}')
 	if args.debug is not None: print(f'Data Frame Rows : {len(df)}')
 	if args.debug is not None: print(f'Server list  : {server_list}')
-	
-	if len(server_list) < int(args.config_numbers) :
-		print(f'Number of available servers \'{len(server_list)}\' is less than requested configs \'{args.config_numbers}\'.\nIncrease load threshold, reduce config numbers or change other parameters like country and try again...\n')
-		return
-	
+			
 	i=0
-	while i < int(args.config_numbers) :
+	while i < int(args.config_limit) :
 		domain_name = str(server_list[i])
 		server_name= domain_name.split('.')[0]
-		if args.debug is not None : print(f'{server_name}')
+		if args.debug is not None : print(f'{i}  -  {server_name}')
+		
 		construct_server_url(server_name, args.protocol, args.base_dir)
 		i += 1
+		
+		if i >= len(server_list) : 
+			print(f'Exhausted available servers. Downloading only {i} server configs ') 
+			break
+		
 	return
 #-----------------------------------------------------------
 # - Start Main module ------  
@@ -298,3 +302,4 @@ else :
 #---------------------------------------------------------	
 # This is the end!
 print('\n\nNordVPN Parser - All done!!\n')
+#---------------------------------------------------------	
