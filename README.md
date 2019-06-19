@@ -33,7 +33,7 @@ The command line option allows for various parameters to be passed which are det
 Here is the complete list of parameters available with this utility.
 
        nordvpn_parser.py [-h] --base_dir BASE_DIR
-                         [--config_numbers CONFIG_NUMBERS]
+                         [--config_limit CONFIG_LIMIT]
                          [--recommended RECOMMENDED] 
                          [--country COUNTRY]
                          [--load LOAD] 
@@ -50,7 +50,7 @@ Here is the complete list of parameters available with this utility.
        optional arguments:
               -h, --help            show this help message and exit
               --base_dir BASE_DIR   Directory to store the server config files on your machine
-              --config_numbers CONFIG_NUMBERS
+              --config_limit CONFIG_LIMIT
                                     Number of server configs to download Eg. 5 will download 5 server configs. Default is 1.
               --recommended RECOMMENDED
                                     Use servers recommended by NordVPN [Y]? 
