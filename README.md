@@ -17,6 +17,8 @@ NordVN has released a recomendation option to provide you with the best servers 
 You can also use <b>NordVPN_Parser</b> independently to update your OpenVPN setting in DD-WRT by running this script to download the config files locally to your machine and pasting that information to the necessary blocks of the OpenVPN UI page.
 
 ## Pre-requists
+
+Runs on Windows and Linux
 Requires Python 3.7+ (I tested this on Python 3.7.2) with additional libraries.
 
 
