@@ -77,7 +77,9 @@ def get_server_config(url, dir, server_name, protocol) :
 	if args.debug is not None: print(remote)
 
 
-	write_dir = f'{dir}\{server_name}{protocol}'
+	#write_dir = f'{dir}\{server_name}{protocol}'
+	write_dir = posixpath.join(dir, server_name+protocol)
+	
 	if args.debug is not None: print(f'Local Dir for writing configs: {write_dir}')
 	p = Path(write_dir)
 
@@ -137,9 +139,9 @@ def get_server_config(url, dir, server_name, protocol) :
 				print(f'Make Dir: {r_dir}')
 				sftp.mkdir(r_dir)
 				
-			sftp.put(write_dir+'\\ca.crt', r_dir+'/ca.crt')
-			sftp.put(write_dir+'\\ta.key', r_dir+'/ta.key')
-			sftp.put(write_dir+'\\openvpn.conf', r_dir+'/openvpn.conf')
+			sftp.put(write_dir+'/ca.crt', r_dir+'/ca.crt')
+			sftp.put(write_dir+'/ta.key', r_dir+'/ta.key')
+			sftp.put(write_dir+'/openvpn.conf', r_dir+'/openvpn.conf')
 			sftp.close()
 		
 			if args.debug is not None: print(f'Downloaded {server_name}{protocol} to {args.router_ip}') 
@@ -239,7 +241,7 @@ def load_df(data) :
 	df2 = df1['domain']
 	
 	server_list = df2.values.tolist()
-	if args.debug is not None : print(f'Data Frame Head(10):\n {df3.head(10)}')
+	if args.debug is not None : print(f'Data Frame Head(50):\n {df3.head(50)}')
 	if args.debug is not None: print(f'Data Frame Rows : {len(df)}')
 	if args.debug is not None: print(f'Server list  : {server_list}')
 			
@@ -302,4 +304,3 @@ else :
 #---------------------------------------------------------	
 # This is the end!
 print('\n\nNordVPN Parser - All done!!\n')
-#---------------------------------------------------------	
